@@ -11,9 +11,10 @@
 
 
 ### Backend service deployment
-1. To deploy the backend service go to [backend service repo](https://github.com/nayankakati/stakater-assigment/tree/main/stakater-backend/kubernetes-deployment)
+1. To build the backend service go to [backend build](https://github.com/nayankakati/stakater-assigment/blob/main/stakater-backend/README.md) 
+2. To deploy the backend service go to [backend service repo](https://github.com/nayankakati/stakater-assigment/tree/main/stakater-backend/kubernetes-deployment)
 
-2. Run the deployment file
+3. Run the deployment file
 ```bash
 $ kubectl apply -f deployment.yml
 ```
@@ -37,7 +38,7 @@ NAME                       TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    
 kubernetes                 ClusterIP   10.96.0.1       <none>        443/TCP    2d    <none>
 stakater-backend-service   ClusterIP   10.101.189.44   <none>        8080/TCP   3m    app=stakater-backend
 ```
-3. Port forward in a separate tab
+4. Port forward in a separate tab
 Run the following for backend service so that traffic is routed internally.
 We can also use LoadBalancer IP
 ```bash
@@ -47,9 +48,10 @@ Forwarding from [::1]:8080 -> 8080
 ```
 
 ### Frontend service deployment
-1. To deploy the frontend servcie go to [frontend service repo](https://github.com/nayankakati/stakater-assigment/tree/main/stakater-frontend/kubernetes-deployment) 
+1. To build the frontend service go to [frontend build](https://github.com/nayankakati/stakater-assigment/blob/main/stakater-frontend/README.md)
+2. To deploy the frontend servcie go to [frontend service repo](https://github.com/nayankakati/stakater-assigment/tree/main/stakater-frontend/kubernetes-deployment) 
  
-2. Run the deployment file
+3. Run the deployment file
 ```bash
 $ kubectl apply -f deployment.yml
 ```
@@ -77,7 +79,7 @@ stakater-frontend-service   NodePort    10.102.82.83    <none>        3000:30007
 ```
 
 
-3. To hit the frontend page run the following command
+4. To hit the frontend page run the following command
 ```bash
 $  minikube service stakater-frontend-service --url
 ```
@@ -86,6 +88,6 @@ nayan@Nayans-MBP kubernetes-deployment % minikube service stakater-frontend-serv
 http://192.168.99.100:30007
 ```
 
-4. Output 
+5. Output 
 ![Output](output.png)
 
