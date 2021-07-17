@@ -1,14 +1,66 @@
 # How to run this application in K8
 
 ### Table of contents
-1. [Backend Service](https://github.com/nayankakati/stakater-assigment#backend-service-deployment)
-1. [Frontend Service](https://github.com/nayankakati/stakater-assigment#frontend-service-deployment)
-2. Helm deployment (https://github.com/nayankakati/stakater-assigment#helm-deployment)
+1. [Helm backend and frontend deployment](https://github.com/nayankakati/stakater-assigment#helm-deployment)
+2. [Backend Service traditional](https://github.com/nayankakati/stakater-assigment#backend-service-deployment)
+3. [Frontend Service traditional](https://github.com/nayankakati/stakater-assigment#frontend-service-deployment)
+
 
 ### Pre-requisites
 1. Docker installed
 2. Minikube installed and running
 3. Kubernetes
+4. helm installed
+
+
+### helm-deployment
+1. To build the backend service go to [backend build](https://github.com/nayankakati/stakater-assigment/blob/main/stakater-backend/README.md) 
+2. To build the frontend service go to [frontend build](https://github.com/nayankakati/stakater-assigment/blob/main/stakater-frontend/README.md)
+
+
+3. To deploy using helm chart backend service go to [backend-service](https://github.com/nayankakati/stakater-assigment/tree/main/stakater-backend/kubernetes-deployment)
+Run the following command
+```bash
+$ helm install stakater-backend ./helm
+```
+Output
+```
+nayan@Nayans-MBP kubernetes-deployment % helm install stakater-backend ./helm
+NAME: stakater-backend
+LAST DEPLOYED: Sat Jul 17 22:58:33 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+```
+
+4. To deploy using heml chart the frontend service go to [frontend-service](https://github.com/nayankakati/stakater-assigment/tree/main/stakater-frontend/kubernetes-deployment)
+Run the following command
+```bash
+$ helm install stakater-frontend ./helm
+```
+Output
+
+```bash
+nayan@Nayans-MBP kubernetes-deployment % helm install stakater-frontend ./helm
+NAME: stakater-frontend
+LAST DEPLOYED: Sat Jul 17 22:58:10 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+```
+
+5. To upgrade the versions
+```bash
+$ helm upgrade stakater-backend ./helm
+$ helm upgrade stakater-frontend ./helm
+```
+6. To uninstall the heml charts deployment
+```bash
+$ helm uninstall stakater-frontend
+$ helm uninstall stakater-backend
+```
 
 
 ### Backend service deployment
@@ -50,7 +102,7 @@ Forwarding from [::1]:8080 -> 8080
 
 ### Frontend service deployment
 1. To build the frontend service go to [frontend build](https://github.com/nayankakati/stakater-assigment/blob/main/stakater-frontend/README.md)
-2. To deploy the frontend servcie go to [frontend service repo](https://github.com/nayankakati/stakater-assigment/tree/main/stakater-frontend/kubernetes-deployment) 
+2. To deploy the frontend service go to [frontend service repo](https://github.com/nayankakati/stakater-assigment/tree/main/stakater-frontend/kubernetes-deployment) 
  
 3. Run the deployment file
 ```bash

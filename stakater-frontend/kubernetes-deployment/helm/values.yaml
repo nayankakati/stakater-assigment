@@ -1,0 +1,14 @@
+replicaCount: 1
+image:
+  repository: "docker.io/nayan2512/stakater-frontend"
+  tag: "latest"
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 3000
+  targetPort: 3000
+  timeoutSeconds: 5
+  periodSeconds: 15
+  protocol : TCP
+  nodePort: 30007
