@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stakater-backend
+spec:
+  selector:
+    matchLabels:
+      app: stakater-backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: stakater-backend
+    spec:
+      containers:
+        - name: stakater-backend
+          image: nayan2512/stakater-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: NAME
+              value: "Nayan"
+---
+# ... Service YAML definition
+apiVersion: v1
+kind: Service
+metadata:
+  name: stakater-backend-service
+spec:
+  selector:
+    app: stakater-backend
+  ports:
+    - protocol: TCP
+      port: 8080
+  type: ClusterIP
