@@ -3,6 +3,7 @@
 ### Table of contents
 1. [Backend Service](https://github.com/nayankakati/stakater-assigment#backend-service-deployment)
 1. [Frontend Service](https://github.com/nayankakati/stakater-assigment#frontend-service-deployment)
+2. Helm deployment (https://github.com/nayankakati/stakater-assigment#helm-deployment)
 
 ### Pre-requisites
 1. Docker installed
