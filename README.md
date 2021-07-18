@@ -51,12 +51,31 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-5. To upgrade the versions
+5. Port forward in a separate tab
+Run the following for backend service so that traffic is routed internally.
+We can also use LoadBalancer IP
+```bash
+nayan@Nayans-MBP stakater-backend % kubectl port-forward service/stakater-backend-service 8080:8080
+Forwarding from 127.0.0.1:8080 -> 8080
+Forwarding from [::1]:8080 -> 8080
+```
+
+6. To hit the frontend page run the following command
+```bash
+$  minikube service stakater-frontend-service --url
+```
+```bash
+nayan@Nayans-MBP kubernetes-deployment % minikube service stakater-frontend-service --url
+http://192.168.99.100:30007
+```
+
+7. To upgrade the versions
 ```bash
 $ helm upgrade stakater-backend ./helm
 $ helm upgrade stakater-frontend ./helm
 ```
-6. To uninstall the heml charts deployment
+
+8. To uninstall the heml charts deployment
 ```bash
 $ helm uninstall stakater-frontend
 $ helm uninstall stakater-backend
